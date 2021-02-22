@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mina's website</title>
+</head>
+<style media="screen">
+    body {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-family: sans-serif;
+        background-image: linear-gradient(120deg, #ef32d9, #89fffd);
+        min-height: 100vh;
+    }
+
+    div {
+        width: 700px;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    h1 {
+        font-size: 35px;
+    }
+
+    .text {
+        font-size: 25px;
+        font-weight: bolder;
+    }
+
+    #height,
+    #weight {
+        text-align: left;
+        font-size: 30px;
+        font-weight: 200;
+        outline: none;
+        border: none;
+        background: none;
+        border-bottom: 1px solid black;
+        width: 300px;
+    }
+
+    .resultText {
+        font-size: 25px;
+        font-weight: bolder;
+        margin-top: 70px;
+    }
+
+    #height:focus,
+    #weight:focus {
+        border-bottom: 2px solid black;
+        width: 400px;
+        transition: 0.5s;
+    }
+
+    #btn {
+        font-family: inherit;
+        margin-top: 10px;
+        border: none;
+        width: 200px;
+        padding: 10px;
+        border-radius: 30px;
+        outline: none;
+        cursor: pointer;
+        color: white;
+        background-color: #bc24f8;
+    }
+
+    #btn:hover {
+        background-color: #cf5ffc;
+        box-shadow: 1px 1px 10px black;
+    }
+
+    table {
+        display: block;
+        margin-top: 35%;
+        margin-left: 30%;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    tr,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 10px;
+    }
+
+    .tablehead {
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Mina's Body Mass Index Calculator</h1>
+        <p class="text">Height</p>
+        <input id="height" type="text" placeholder="cm">
+        <p class="text">Weight</p>
+        <input id="weight" type="text" placeholder="kg">
+        <p class="resultText">Body Mass Index</p>
+        <button id="btn" type="button">Calculate</button>
+        <p id="result" class="resultText"></p>
+    </div>
+
+    <table>
+        <tr class="tablehead">
+            <td>Category</td>
+            <td> BMI range</td>
+            <td>Health risk</td>
+        </tr>
+        <tr>
+            <td>Underweight</td>
+            <td>Under 18.5</td>
+            <td>Risk of developing problems such as nutritional deficiency and osteoporosis</td>
+        </tr>
+        <tr>
+            <td>Normal Range</td>
+            <td>18.5-23</td>
+            <td>Low Risk (healthy range)</td>
+        </tr>
+        <tr>
+            <td>Overweight</td>
+            <td>23-30</td>
+            <td>Moderate risk of developing heart disease, high blood pressure, stroke, diabetes</td>
+        </tr>
+        <tr>
+            <td>Obese</td>
+            <td>Over 30</td>
+            <td>High risk of developing heart disease, high blood pressure, stroke, diabetes</td>
+        </tr>
+    </table>
+
+</body>
+<script type="text/javascript">
+    function BMI() {
+        var h = document.getElementById('height').value;
+        var w = document.getElementById('weight').value;
+        var bmi = w / ((h / 100) ** 2)
+        var bmif = (bmi.toFixed(2))
+        document.getElementById('result').innerHTML = "Your BMI is" + " " + bmif;
+    }
+    document.getElementById('btn').addEventListener("click", BMI);
+</script>
+
+</html>
